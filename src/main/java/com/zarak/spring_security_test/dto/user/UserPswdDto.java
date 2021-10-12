@@ -1,17 +1,16 @@
 package com.zarak.spring_security_test.dto.user;
 
 
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 
 @Data
 @Builder
-@AllArgsConstructor
-public class UserDto {
+@RequiredArgsConstructor
+public class UserPswdDto  {
 	private final String login;
+	private final String password;
 	private final String email;
 	private final int age;
 	private final double money;

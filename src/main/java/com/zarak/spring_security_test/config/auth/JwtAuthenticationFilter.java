@@ -13,7 +13,7 @@ import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 
-import com.zarak.spring_security_test.services.AuthService;
+import com.zarak.spring_security_test.service.AuthService;
 
 import lombok.AllArgsConstructor;
 
