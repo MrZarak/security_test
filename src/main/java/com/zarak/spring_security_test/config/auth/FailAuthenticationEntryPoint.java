@@ -14,8 +14,6 @@ import org.springframework.stereotype.Component;
 public class FailAuthenticationEntryPoint implements AuthenticationEntryPoint {
 	@Override
 	public void commence(HttpServletRequest request, HttpServletResponse response, AuthenticationException authException) throws IOException {
-		try(final PrintWriter writer = response.getWriter()) {
-			writer.println("Auth exception -> " + authException);
-		}
+		response.sendError(HttpServletResponse.SC_FORBIDDEN, authException.getMessage());
 	}
 }

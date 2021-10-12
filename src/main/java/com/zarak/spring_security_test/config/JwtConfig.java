@@ -15,16 +15,19 @@ import com.nimbusds.jose.proc.JWEKeySelector;
 import com.nimbusds.jose.proc.SimpleSecurityContext;
 import com.nimbusds.jwt.proc.DefaultJWTProcessor;
 import com.nimbusds.jwt.proc.JWTProcessor;
+import com.zarak.spring_security_test.config.properties.JwtProperties;
+
+import lombok.RequiredArgsConstructor;
 
 @Configuration
+@RequiredArgsConstructor
 class JwtConfig {
-	@Value("${secret_key}")
-	private String key;
+	private final JwtProperties properties;
 
 	@Bean
 	public JWTProcessor<SimpleSecurityContext> processor() {
 		DefaultJWTProcessor<SimpleSecurityContext> jwtProcessor = new DefaultJWTProcessor<>();
-		JWKSource<SimpleSecurityContext> jweKeySource = new ImmutableSecret<>(key.getBytes(StandardCharsets.UTF_8));
+		JWKSource<SimpleSecurityContext> jweKeySource = new ImmutableSecret<>(properties.getSecret().getBytes(StandardCharsets.UTF_8));
 		JWEKeySelector<SimpleSecurityContext> jweKeySelector =
 				new JWEDecryptionKeySelector<>(JWEAlgorithm.DIR, EncryptionMethod.A128CBC_HS256, jweKeySource);
 		(jwtProcessor).setJWEKeySelector(jweKeySelector);

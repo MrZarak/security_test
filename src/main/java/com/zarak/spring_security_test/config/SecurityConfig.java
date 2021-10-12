@@ -12,6 +12,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 
 import com.zarak.spring_security_test.config.auth.FailAuthenticationEntryPoint;
 import com.zarak.spring_security_test.config.auth.JwtAuthenticationFilter;
+import com.zarak.spring_security_test.dto.user.UserRole;
 
 import lombok.AllArgsConstructor;
 
@@ -35,7 +36,7 @@ class SecurityConfig extends WebSecurityConfigurerAdapter {
 				.sessionCreationPolicy(SessionCreationPolicy.STATELESS)
 				.and()
 				.authorizeRequests(registry -> registry
-						.mvcMatchers("/admin/**").hasAuthority("ADMIN")
+						.mvcMatchers("/admin/**").hasAuthority(UserRole.ADMIN.getAuthority())
 						.mvcMatchers("/public/**").permitAll()
 						.mvcMatchers("/**").authenticated()
 				)

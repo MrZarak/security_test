@@ -1,4 +1,4 @@
-package com.zarak.spring_security_test;
+package com.zarak.spring_security_test.util;
 
 import java.nio.charset.StandardCharsets;
 
@@ -12,7 +12,7 @@ import com.nimbusds.jwt.JWTClaimsSet;
 
 
 public class GenTokenUtil {
-static byte[] secretKey = "52424A327AB914765D0F3DF965A4C653".getBytes(StandardCharsets.UTF_8);
+	static byte[] secretKey = "52424A327AB914765D0F3DF965A4C653".getBytes(StandardCharsets.UTF_8);
 
 	public static void main(String[] args) throws Exception {
 		JWTClaimsSet claims = new JWTClaimsSet.Builder()
