@@ -1,0 +1,17 @@
+{
+  "groups": [
+    {
+      "name": "jwt",
+      "type": "com.zarak.spring_security_test.config.properties.JwtProperties",
+      "sourceType": "com.zarak.spring_security_test.config.properties.JwtProperties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "jwt.secret",
+      "type": "java.lang.String",
+      "sourceType": "com.zarak.spring_security_test.config.properties.JwtProperties"
+    }
+  ],
+  "hints": []
+}
