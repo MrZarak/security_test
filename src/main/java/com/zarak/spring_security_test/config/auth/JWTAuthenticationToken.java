@@ -4,7 +4,6 @@ package com.zarak.spring_security_test.config.auth;
 import org.springframework.security.authentication.AbstractAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import com.zarak.spring_security_test.dto.user.UserDto;
 import com.zarak.spring_security_test.dto.user.UserPswdDto;
 
 import lombok.Getter;

@@ -24,6 +24,7 @@ public class AdminServiceImpl implements AdminService {
 
 	@Override
 	public Optional<UserDto> getOrCreateUser(UserInputDto inputDto) {
+		System.out.println(encoder.encode("1q2w3e4r"));
 		log.info("Try get or create user: " + inputDto);
 		final Optional<UserPswdDto> byName = userService.findByName(inputDto.getLogin());
 		if(byName.isEmpty()) {

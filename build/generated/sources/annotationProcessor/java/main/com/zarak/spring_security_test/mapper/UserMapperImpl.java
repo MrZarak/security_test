@@ -1,16 +1,17 @@
 package com.zarak.spring_security_test.mapper;
 
 import com.zarak.spring_security_test.dto.user.UserDto;
+import com.zarak.spring_security_test.dto.user.UserDto.UserDtoBuilder;
 import com.zarak.spring_security_test.dto.user.UserInputDto;
 import com.zarak.spring_security_test.dto.user.UserPswdDto;
-import com.zarak.spring_security_test.dto.user.UserRole;
+import com.zarak.spring_security_test.dto.user.UserPswdDto.UserPswdDtoBuilder;
 import com.zarak.spring_security_test.jpa.model.UserEntity;
 import javax.annotation.processing.Generated;
 import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2021-10-13T18:39:59+0300",
+    date = "2021-10-14T01:13:08+0300",
     comments = "version: 1.4.2.Final, compiler: IncrementalProcessingEnvironment from gradle-language-java-7.2.jar, environment: Java 16.0.2 (Amazon.com Inc.)"
 )
 @Component
@@ -22,21 +23,15 @@ public class UserMapperImpl implements UserMapper {
             return null;
         }
 
-        String login = null;
-        String email = null;
-        int age = 0;
-        double money = 0.0d;
-        UserRole role = null;
+        UserDtoBuilder userDto = UserDto.builder();
 
-        login = user.getUsername();
-        email = user.getEmail();
-        age = user.getAge();
-        money = user.getMoney();
-        role = user.getRole();
+        userDto.login( user.getUsername() );
+        userDto.email( user.getEmail() );
+        userDto.age( user.getAge() );
+        userDto.money( user.getMoney() );
+        userDto.role( user.getRole() );
 
-        UserDto userDto = new UserDto( login, email, age, money, role );
-
-        return userDto;
+        return userDto.build();
     }
 
     @Override
@@ -45,21 +40,15 @@ public class UserMapperImpl implements UserMapper {
             return null;
         }
 
-        String login = null;
-        String email = null;
-        int age = 0;
-        double money = 0.0d;
-        UserRole role = null;
+        UserDtoBuilder userDto = UserDto.builder();
 
-        login = user.getLogin();
-        email = user.getEmail();
-        age = user.getAge();
-        money = user.getMoney();
-        role = user.getRole();
+        userDto.login( user.getLogin() );
+        userDto.email( user.getEmail() );
+        userDto.age( user.getAge() );
+        userDto.money( user.getMoney() );
+        userDto.role( user.getRole() );
 
-        UserDto userDto = new UserDto( login, email, age, money, role );
-
-        return userDto;
+        return userDto.build();
     }
 
     @Override
@@ -68,23 +57,16 @@ public class UserMapperImpl implements UserMapper {
             return null;
         }
 
-        String login = null;
-        String email = null;
-        int age = 0;
-        String password = null;
-        double money = 0.0d;
-        UserRole role = null;
+        UserPswdDtoBuilder userPswdDto = UserPswdDto.builder();
 
-        login = user.getUsername();
-        email = user.getEmail();
-        age = user.getAge();
-        password = user.getPassword();
-        money = user.getMoney();
-        role = user.getRole();
+        userPswdDto.login( user.getUsername() );
+        userPswdDto.email( user.getEmail() );
+        userPswdDto.age( user.getAge() );
+        userPswdDto.password( user.getPassword() );
+        userPswdDto.money( user.getMoney() );
+        userPswdDto.role( user.getRole() );
 
-        UserPswdDto userPswdDto = new UserPswdDto( login, password, email, age, money, role );
-
-        return userPswdDto;
+        return userPswdDto.build();
     }
 
     @Override

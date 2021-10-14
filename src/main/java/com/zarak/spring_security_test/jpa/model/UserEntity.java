@@ -34,7 +34,7 @@ public class UserEntity {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@Column(name = "username", nullable = false)
+	@Column(name = "login", nullable = false)
 	private String username;
 
 	@Column(name = "email", nullable = false)
@@ -46,7 +46,7 @@ public class UserEntity {
 	@Column(name = "age", nullable = false)
 	private int age;
 
-	@Column(name = "money", nullable = false)
+	@Column(name = "moneyamount", nullable = false)
 	private double money;
 
 	@Column(name = "role", nullable = false)
