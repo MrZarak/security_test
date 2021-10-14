@@ -9,5 +9,7 @@ import lombok.Data;
 @Component
 @ConfigurationProperties("jwt")
 public class JwtProperties {
+	// TODO: add not-null validation
+	// server start should fail if secret not specified
 	private String secret;
 }
