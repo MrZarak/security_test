@@ -37,7 +37,7 @@ public class JWTAuthService implements AuthService {
 				String username = getClaim(claimsSet, "username");
 				Optional<Authentication> authenticationOptional = service.findByName(username).map(userPswdDto -> {
 					UserDetails details = new User(userPswdDto.getLogin(), userPswdDto.getPassword(),
-							Collections.singleton(new SimpleGrantedAuthority(userPswdDto.getRole().name())));
+							Collections.singleton(new SimpleGrantedAuthority(userPswdDto.getRole().getAuthority())));
 					return new JWTAuthenticationToken(details, userPswdDto, token);
 				});
 				if(authenticationOptional.isPresent()) {

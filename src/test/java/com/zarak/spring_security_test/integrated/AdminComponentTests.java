@@ -36,7 +36,8 @@ class AdminComponentTests {
 
 	@SpyBean
 	private UserService userService;
-
+	@Autowired
+	private UserMapper mapper;
 	@Autowired
 	private MockMvc mvc;
 
@@ -44,8 +45,12 @@ class AdminComponentTests {
 	@Test
 	void forbiddenWhenNoAdmin() throws Exception {
 		var userInputDto = prepareTestUserInputDto();
+		var userPswdDto = UserPswdDto.builder()
+				.login(userInputDto.getLogin())
+				.email(userInputDto.getEmail())
+				.build();
 
-		doReturn(Optional.empty()).when(userService).saveUser(any());
+		doReturn(userPswdDto).when(userService).saveUser(any());
 
 		mvc.perform(post("/admin/get_or_create")
 						.contentType(MediaType.APPLICATION_JSON)
@@ -63,7 +68,7 @@ class AdminComponentTests {
 				.email(userInputDto.getEmail())
 				.build();
 
-		doReturn(Optional.of(userPswdDto)).when(userService).saveUser(any());
+		doReturn(userPswdDto).when(userService).saveUser(any());
 
 		mvc.perform(post("/admin/get_or_create")
 						.contentType(MediaType.APPLICATION_JSON)

@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.zarak.spring_security_test.dto.user.UserPswdDto;
+import com.zarak.spring_security_test.jpa.model.UserEntity;
 import com.zarak.spring_security_test.jpa.repository.UserEntityRepository;
 import com.zarak.spring_security_test.mapper.UserMapper;
 
@@ -25,8 +26,8 @@ public class UserServiceImpl implements UserService {
 
 	@Transactional
 	@Override
-	// TODO: remove optional
-	public Optional<UserPswdDto> saveUser(UserPswdDto userDto) {
-		return Optional.of(repository.save(mapper.toEntity(userDto))).map(mapper::toDtoPswd);
+	public UserPswdDto saveUser(UserPswdDto userDto) {
+		final UserEntity saved = repository.save(mapper.toEntity(userDto));
+		return mapper.toDtoPswd(saved);
 	}
 }

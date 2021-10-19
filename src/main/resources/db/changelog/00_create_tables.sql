@@ -1,3 +1,7 @@
+--liquibase formatted sql
+
+--changeset zarak:create_tables
+--comment: Создаёт таблицу users_security
 CREATE TABLE IF NOT EXISTS users_security(
 	id SERIAL PRIMARY KEY,
 	login VARCHAR(32) UNIQUE NOT NULL,
@@ -5,7 +9,6 @@ CREATE TABLE IF NOT EXISTS users_security(
 	password VARCHAR(255) NOT NULL,
 	age INT NOT NULL DEFAULT 18,
 	moneyAmount REAL NOT NULL DEFAULT 0.0,
-	ROLE VARCHAR(16) NOT NULL DEFAULT 'Admin'
+	userRole VARCHAR(16) NOT NULL DEFAULT 'ADMIN'
 );
-
-INSERT INTO users_security(login, email, password, age) VALUES( 'Zarak', 'mrzarak0303@gmail.com', 'aboba', 18);
+--rollback DROP TABLE users_security;

@@ -49,7 +49,7 @@ public class UserEntity {
 	@Column(name = "moneyamount", nullable = false)
 	private double money;
 
-	@Column(name = "role", nullable = false)
+	@Column(name = "userRole", nullable = false)
 	@Enumerated(EnumType.STRING)
 	private UserRole role;
 

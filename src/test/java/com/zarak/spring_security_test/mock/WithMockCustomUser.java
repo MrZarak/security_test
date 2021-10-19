@@ -16,5 +16,6 @@ public @interface WithMockCustomUser {
 	String email() default "mrzaraj0303@gmail.com";
 
 	String password() default "1q2w3e";
+
 	UserRole authority() default UserRole.USER;
 }
